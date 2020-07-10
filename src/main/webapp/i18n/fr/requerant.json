@@ -1,0 +1,36 @@
+{
+  "mjkApp": {
+    "requerant": {
+      "home": {
+        "title": "Requerants",
+        "createLabel": "Créer un nouveau Requerant",
+        "createOrEditLabel": "Créer ou éditer un Requerant",
+        "notFound": "Aucun Requerant trouvé"
+      },
+      "created": "Un nouveau Requerant a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Requerant avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Requerant avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Requerant {{ id }} ?"
+      },
+      "detail": {
+        "title": "Requerant"
+      },
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "telephone": "Telephone",
+      "mail": "Mail",
+      "localite": "Localite",
+      "genre": "Genre",
+      "age": "Age",
+      "demandeAssistance": "Demande Assistance",
+      "defenseAssistance": "Defense Assistance",
+      "demandeCreances": "Demande Creances",
+      "defenseCreances": "Defense Creances",
+      "demandeSaisines": "Demande Saisines",
+      "defenseSaisines": "Defense Saisines",
+      "profession": "Profession",
+      "ethnie": "Ethnie"
+    }
+  }
+}

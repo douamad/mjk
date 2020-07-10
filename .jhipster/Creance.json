@@ -1,0 +1,85 @@
+{
+  "name": "Creance",
+  "fields": [
+    {
+      "fieldName": "ref",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "datePVRec",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "natureLitige",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "montant",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "nombreEcheance",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalRecouvre",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "soldeARecouvrer",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "origineSaisine",
+      "otherEntityRelationshipName": "creances",
+      "relationshipName": "origine",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "conclusion",
+      "otherEntityRelationshipName": "creances",
+      "relationshipName": "conclusions",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "maison",
+      "otherEntityRelationshipName": "creances",
+      "relationshipName": "maison",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "requerant",
+      "otherEntityRelationshipName": "demandeCreances",
+      "relationshipName": "demandeur",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "requerant",
+      "otherEntityRelationshipName": "defenseCreances",
+      "relationshipName": "defendeur",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200709135437",
+  "entityTableName": "creance",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

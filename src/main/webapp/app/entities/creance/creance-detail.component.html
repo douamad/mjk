@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="creance">
+            <h2><span jhiTranslate="mjkApp.creance.detail.title">Creance</span> {{ creance.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mjkApp.creance.ref">Ref</span></dt>
+                <dd>
+                    <span>{{ creance.ref }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.date">Date</span></dt>
+                <dd>
+                    <span>{{ creance.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.datePVRec">Date PV Rec</span></dt>
+                <dd>
+                    <span>{{ creance.datePVRec }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.natureLitige">Nature Litige</span></dt>
+                <dd>
+                    <span>{{ creance.natureLitige }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ creance.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.nombreEcheance">Nombre Echeance</span></dt>
+                <dd>
+                    <span>{{ creance.nombreEcheance }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.totalRecouvre">Total Recouvre</span></dt>
+                <dd>
+                    <span>{{ creance.totalRecouvre }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.soldeARecouvrer">Solde A Recouvrer</span></dt>
+                <dd>
+                    <span>{{ creance.soldeARecouvrer }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.origine">Origine</span></dt>
+                <dd>
+                    <div *ngIf="creance.origineId">
+                        <a [routerLink]="['/origine-saisine', creance.origineId, 'view']">{{ creance.origineId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.conclusions">Conclusions</span></dt>
+                <dd>
+                    <div *ngIf="creance.conclusionsId">
+                        <a [routerLink]="['/conclusion', creance.conclusionsId, 'view']">{{ creance.conclusionsId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.maison">Maison</span></dt>
+                <dd>
+                    <div *ngIf="creance.maisonId">
+                        <a [routerLink]="['/maison', creance.maisonId, 'view']">{{ creance.maisonId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.demandeur">Demandeur</span></dt>
+                <dd>
+                    <div *ngIf="creance.demandeurId">
+                        <a [routerLink]="['/requerant', creance.demandeurId, 'view']">{{ creance.demandeurId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.creance.defendeur">Defendeur</span></dt>
+                <dd>
+                    <div *ngIf="creance.defendeurId">
+                        <a [routerLink]="['/requerant', creance.defendeurId, 'view']">{{ creance.defendeurId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/creance', creance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

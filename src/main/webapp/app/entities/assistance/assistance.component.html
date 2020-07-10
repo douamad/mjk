@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mjkApp.assistance.home.title">Assistances</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-assistance" [routerLink]="['/assistance/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="mjkApp.assistance.home.createLabel">
+            Create a new Assistance
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="assistances?.length === 0">
+        <span jhiTranslate="mjkApp.assistance.home.notFound">No assistances found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="assistances && assistances.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reference"><span jhiTranslate="mjkApp.assistance.reference">Reference</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="mjkApp.assistance.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cout"><span jhiTranslate="mjkApp.assistance.cout">Cout</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="objetAssistanceId"><span jhiTranslate="mjkApp.assistance.objetAssistance">Objet Assistance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maisonId"><span jhiTranslate="mjkApp.assistance.maison">Maison</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="demandeurId"><span jhiTranslate="mjkApp.assistance.demandeur">Demandeur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="defendeurId"><span jhiTranslate="mjkApp.assistance.defendeur">Defendeur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let assistance of assistances ;trackBy: trackId">
+                    <td><a [routerLink]="['/assistance', assistance.id, 'view']">{{ assistance.id }}</a></td>
+                    <td>{{ assistance.reference }}</td>
+                    <td>{{ assistance.date }}</td>
+                    <td>{{ assistance.cout }}</td>
+                    <td>
+                        <div *ngIf="assistance.objetAssistanceId">
+                            <a [routerLink]="['/objet-assistance', assistance.objetAssistanceId , 'view']" >{{ assistance.objetAssistanceId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="assistance.maisonId">
+                            <a [routerLink]="['/maison', assistance.maisonId , 'view']" >{{ assistance.maisonId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="assistance.demandeurId">
+                            <a [routerLink]="['/requerant', assistance.demandeurId , 'view']" >{{ assistance.demandeurId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="assistance.defendeurId">
+                            <a [routerLink]="['/requerant', assistance.defendeurId , 'view']" >{{ assistance.defendeurId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/assistance', assistance.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/assistance', assistance.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(assistance)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="assistances && assistances.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

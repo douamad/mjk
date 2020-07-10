@@ -1,0 +1,25 @@
+{
+  "mjkApp": {
+    "natureSaisine": {
+      "home": {
+        "title": "Nature Saisines",
+        "createLabel": "Create a new Nature Saisine",
+        "createOrEditLabel": "Create or edit a Nature Saisine",
+        "notFound": "No Nature Saisines found"
+      },
+      "created": "A new Nature Saisine is created with identifier {{ param }}",
+      "updated": "A Nature Saisine is updated with identifier {{ param }}",
+      "deleted": "A Nature Saisine is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Nature Saisine {{ id }}?"
+      },
+      "detail": {
+        "title": "Nature Saisine"
+      },
+      "nom": "Nom",
+      "slug": "Slug",
+      "description": "Description",
+      "saisines": "Saisines"
+    }
+  }
+}

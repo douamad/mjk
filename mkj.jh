@@ -1,0 +1,132 @@
+
+
+entity ObjetSaisine {
+	nom String,
+    slug String,
+    description String
+}
+
+entity OrigineSaisine {
+	nom String,
+    slug String,
+    description String
+}
+
+entity NatureSaisine {
+	nom String,
+    slug String,
+    description String
+}
+
+entity Conclusion {
+	nom String,
+    slug String,
+    description String
+}
+
+entity Maison {
+	nom String,
+    slug String,
+    description String
+}
+
+entity Profession {
+	nom String,
+    slug String,
+    description String
+}
+
+entity ObjetAssistance {
+	nom String,
+    slug String,
+    description String
+}
+
+
+
+entity Ethnie {
+	nom String,
+    slug String,
+    description String
+}
+
+entity Saisine {
+	ref String,
+    date LocalDate,
+    description String,
+    organisaiton Integer
+}
+
+entity Requerant {
+	prenom String,
+    nom String,
+    telephone String,
+    mail String,
+    localite String,
+    genre Genre,
+    age Integer
+}
+
+entity Creance {
+	ref String,
+    date LocalDate,
+    datePVRec LocalDate,
+    natureLitige String,
+    montant Float,
+    nombreEcheance Integer,
+    totalRecouvre Float,
+    soldeARecouvrer Float
+}
+
+entity Assistance{
+	reference String,
+    date String,
+    cout String
+}
+enum Genre{
+	H,
+    F
+}
+
+relationship OneToMany{
+	ObjetAssistance{objet} to Assistance
+	Maison{assistances} to Assistance{maison}
+    Requerant{demandeAssistance} to Assistance{demandeur}
+    Requerant{defenseAssistance} to Assistance{defendeur}
+}
+
+relationship OneToMany{
+	OrigineSaisine{creances} to Creance{origine}
+	Conclusion{creances} to Creance{conclusions}
+	Maison{creances} to Creance{maison}
+    Requerant{demandeCreances} to Creance{demandeur}
+    Requerant{defenseCreances} to Creance{defendeur}
+}
+
+
+
+
+relationship OneToMany{
+	ObjetSaisine{saisines} to Saisine{objet}
+	NatureSaisine{saisines} to Saisine{nature}
+	OrigineSaisine{saisines} to Saisine{origine}
+	Conclusion{saisines} to Saisine{conclusion}
+	Maison{saisines} to Saisine{maison}
+    Requerant{demandeSaisines} to Saisine{demandeur}
+    Requerant{defenseSaisines} to Saisine{defendeur}
+}
+
+relationship OneToMany{
+	Profession{profession} to Requerant
+	Ethnie{ethni} to Requerant
+}
+
+
+
+// Set pagination options
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+dto all with mapstruct
+// Set service options to all except few
+service all with serviceImpl

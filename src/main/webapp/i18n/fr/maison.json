@@ -1,0 +1,27 @@
+{
+  "mjkApp": {
+    "maison": {
+      "home": {
+        "title": "Maisons",
+        "createLabel": "Créer un nouveau Maison",
+        "createOrEditLabel": "Créer ou éditer un Maison",
+        "notFound": "Aucun Maison trouvé"
+      },
+      "created": "Un nouveau Maison a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Maison avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Maison avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Maison {{ id }} ?"
+      },
+      "detail": {
+        "title": "Maison"
+      },
+      "nom": "Nom",
+      "slug": "Slug",
+      "description": "Description",
+      "assistances": "Assistances",
+      "creances": "Creances",
+      "saisines": "Saisines"
+    }
+  }
+}

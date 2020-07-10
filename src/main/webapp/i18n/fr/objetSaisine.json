@@ -1,0 +1,25 @@
+{
+  "mjkApp": {
+    "objetSaisine": {
+      "home": {
+        "title": "ObjetSaisines",
+        "createLabel": "Créer un nouveau Objet Saisine",
+        "createOrEditLabel": "Créer ou éditer un Objet Saisine",
+        "notFound": "Aucun Objet Saisine trouvé"
+      },
+      "created": "Un nouveau Objet Saisine a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Objet Saisine avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Objet Saisine avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Objet Saisine {{ id }} ?"
+      },
+      "detail": {
+        "title": "Objet Saisine"
+      },
+      "nom": "Nom",
+      "slug": "Slug",
+      "description": "Description",
+      "saisines": "Saisines"
+    }
+  }
+}

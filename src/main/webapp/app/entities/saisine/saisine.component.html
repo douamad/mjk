@@ -1,0 +1,119 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mjkApp.saisine.home.title">Saisines</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-saisine" [routerLink]="['/saisine/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="mjkApp.saisine.home.createLabel">
+            Create a new Saisine
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="saisines?.length === 0">
+        <span jhiTranslate="mjkApp.saisine.home.notFound">No saisines found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="saisines && saisines.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ref"><span jhiTranslate="mjkApp.saisine.ref">Ref</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="mjkApp.saisine.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="mjkApp.saisine.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="organisaiton"><span jhiTranslate="mjkApp.saisine.organisaiton">Organisaiton</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="objetId"><span jhiTranslate="mjkApp.saisine.objet">Objet</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="natureId"><span jhiTranslate="mjkApp.saisine.nature">Nature</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="origineId"><span jhiTranslate="mjkApp.saisine.origine">Origine</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="conclusionId"><span jhiTranslate="mjkApp.saisine.conclusion">Conclusion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maisonId"><span jhiTranslate="mjkApp.saisine.maison">Maison</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="demandeurId"><span jhiTranslate="mjkApp.saisine.demandeur">Demandeur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="defendeurId"><span jhiTranslate="mjkApp.saisine.defendeur">Defendeur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let saisine of saisines ;trackBy: trackId">
+                    <td><a [routerLink]="['/saisine', saisine.id, 'view']">{{ saisine.id }}</a></td>
+                    <td>{{ saisine.ref }}</td>
+                    <td>{{ saisine.date | date:'mediumDate' }}</td>
+                    <td>{{ saisine.description }}</td>
+                    <td>{{ saisine.organisaiton }}</td>
+                    <td>
+                        <div *ngIf="saisine.objetId">
+                            <a [routerLink]="['/objet-saisine', saisine.objetId , 'view']" >{{ saisine.objetId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="saisine.natureId">
+                            <a [routerLink]="['/nature-saisine', saisine.natureId , 'view']" >{{ saisine.natureId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="saisine.origineId">
+                            <a [routerLink]="['/origine-saisine', saisine.origineId , 'view']" >{{ saisine.origineId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="saisine.conclusionId">
+                            <a [routerLink]="['/conclusion', saisine.conclusionId , 'view']" >{{ saisine.conclusionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="saisine.maisonId">
+                            <a [routerLink]="['/maison', saisine.maisonId , 'view']" >{{ saisine.maisonId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="saisine.demandeurId">
+                            <a [routerLink]="['/requerant', saisine.demandeurId , 'view']" >{{ saisine.demandeurId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="saisine.defendeurId">
+                            <a [routerLink]="['/requerant', saisine.defendeurId , 'view']" >{{ saisine.defendeurId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/saisine', saisine.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/saisine', saisine.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(saisine)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="saisines && saisines.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

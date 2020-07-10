@@ -1,0 +1,97 @@
+{
+  "name": "Requerant",
+  "fields": [
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telephone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "localite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "genre",
+      "fieldType": "Genre",
+      "fieldValues": "H,F"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "assistance",
+      "otherEntityRelationshipName": "demandeur",
+      "relationshipName": "demandeAssistance"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "assistance",
+      "otherEntityRelationshipName": "defendeur",
+      "relationshipName": "defenseAssistance"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "creance",
+      "otherEntityRelationshipName": "demandeur",
+      "relationshipName": "demandeCreances"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "creance",
+      "otherEntityRelationshipName": "defendeur",
+      "relationshipName": "defenseCreances"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "saisine",
+      "otherEntityRelationshipName": "demandeur",
+      "relationshipName": "demandeSaisines"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "saisine",
+      "otherEntityRelationshipName": "defendeur",
+      "relationshipName": "defenseSaisines"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "profession",
+      "otherEntityRelationshipName": "profession",
+      "relationshipName": "profession",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ethnie",
+      "otherEntityRelationshipName": "ethni",
+      "relationshipName": "ethnie",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200709135337",
+  "entityTableName": "requerant",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

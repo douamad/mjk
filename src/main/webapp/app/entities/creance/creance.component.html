@@ -1,0 +1,115 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mjkApp.creance.home.title">Creances</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-creance" [routerLink]="['/creance/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="mjkApp.creance.home.createLabel">
+            Create a new Creance
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="creances?.length === 0">
+        <span jhiTranslate="mjkApp.creance.home.notFound">No creances found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="creances && creances.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ref"><span jhiTranslate="mjkApp.creance.ref">Ref</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="mjkApp.creance.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="datePVRec"><span jhiTranslate="mjkApp.creance.datePVRec">Date PV Rec</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="natureLitige"><span jhiTranslate="mjkApp.creance.natureLitige">Nature Litige</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montant"><span jhiTranslate="mjkApp.creance.montant">Montant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombreEcheance"><span jhiTranslate="mjkApp.creance.nombreEcheance">Nombre Echeance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="totalRecouvre"><span jhiTranslate="mjkApp.creance.totalRecouvre">Total Recouvre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="soldeARecouvrer"><span jhiTranslate="mjkApp.creance.soldeARecouvrer">Solde A Recouvrer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="origineId"><span jhiTranslate="mjkApp.creance.origine">Origine</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="conclusionsId"><span jhiTranslate="mjkApp.creance.conclusions">Conclusions</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maisonId"><span jhiTranslate="mjkApp.creance.maison">Maison</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="demandeurId"><span jhiTranslate="mjkApp.creance.demandeur">Demandeur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="defendeurId"><span jhiTranslate="mjkApp.creance.defendeur">Defendeur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let creance of creances ;trackBy: trackId">
+                    <td><a [routerLink]="['/creance', creance.id, 'view']">{{ creance.id }}</a></td>
+                    <td>{{ creance.ref }}</td>
+                    <td>{{ creance.date | date:'mediumDate' }}</td>
+                    <td>{{ creance.datePVRec | date:'mediumDate' }}</td>
+                    <td>{{ creance.natureLitige }}</td>
+                    <td>{{ creance.montant }}</td>
+                    <td>{{ creance.nombreEcheance }}</td>
+                    <td>{{ creance.totalRecouvre }}</td>
+                    <td>{{ creance.soldeARecouvrer }}</td>
+                    <td>
+                        <div *ngIf="creance.origineId">
+                            <a [routerLink]="['/origine-saisine', creance.origineId , 'view']" >{{ creance.origineId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="creance.conclusionsId">
+                            <a [routerLink]="['/conclusion', creance.conclusionsId , 'view']" >{{ creance.conclusionsId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="creance.maisonId">
+                            <a [routerLink]="['/maison', creance.maisonId , 'view']" >{{ creance.maisonId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="creance.demandeurId">
+                            <a [routerLink]="['/requerant', creance.demandeurId , 'view']" >{{ creance.demandeurId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="creance.defendeurId">
+                            <a [routerLink]="['/requerant', creance.defendeurId , 'view']" >{{ creance.defendeurId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/creance', creance.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/creance', creance.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(creance)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="creances && creances.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

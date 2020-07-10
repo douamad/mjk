@@ -7,6 +7,18 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "الكيانات",
+        "objetSaisine": "Objet Saisine",
+        "origineSaisine": "Origine Saisine",
+        "natureSaisine": "Nature Saisine",
+        "conclusion": "Conclusion",
+        "maison": "Maison",
+        "profession": "Profession",
+        "objetAssistance": "Objet Assistance",
+        "ethnie": "Ethnie",
+        "saisine": "Saisine",
+        "requerant": "Requerant",
+        "creance": "Creance",
+        "assistance": "Assistance",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

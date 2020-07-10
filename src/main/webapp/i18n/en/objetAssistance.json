@@ -1,0 +1,25 @@
+{
+  "mjkApp": {
+    "objetAssistance": {
+      "home": {
+        "title": "Objet Assistances",
+        "createLabel": "Create a new Objet Assistance",
+        "createOrEditLabel": "Create or edit a Objet Assistance",
+        "notFound": "No Objet Assistances found"
+      },
+      "created": "A new Objet Assistance is created with identifier {{ param }}",
+      "updated": "A Objet Assistance is updated with identifier {{ param }}",
+      "deleted": "A Objet Assistance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Objet Assistance {{ id }}?"
+      },
+      "detail": {
+        "title": "Objet Assistance"
+      },
+      "nom": "Nom",
+      "slug": "Slug",
+      "description": "Description",
+      "objet": "Objet"
+    }
+  }
+}

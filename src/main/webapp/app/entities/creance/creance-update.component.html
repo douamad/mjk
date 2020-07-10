@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-creance-heading" jhiTranslate="mjkApp.creance.home.createOrEditLabel">Create or edit a Creance</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.ref" for="field_ref">Ref</label>
+                    <input type="text" class="form-control" name="ref" id="field_ref"
+                           formControlName="ref"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.date" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" formControlName="date"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.datePVRec" for="field_datePVRec">Date PV Rec</label>
+                    <div class="input-group">
+                        <input id="field_datePVRec" type="text" class="form-control" name="datePVRec" ngbDatepicker #datePVRecDp="ngbDatepicker" formControlName="datePVRec"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datePVRecDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.natureLitige" for="field_natureLitige">Nature Litige</label>
+                    <input type="text" class="form-control" name="natureLitige" id="field_natureLitige"
+                           formControlName="natureLitige"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.montant" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                           formControlName="montant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.nombreEcheance" for="field_nombreEcheance">Nombre Echeance</label>
+                    <input type="number" class="form-control" name="nombreEcheance" id="field_nombreEcheance"
+                           formControlName="nombreEcheance"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.totalRecouvre" for="field_totalRecouvre">Total Recouvre</label>
+                    <input type="number" class="form-control" name="totalRecouvre" id="field_totalRecouvre"
+                           formControlName="totalRecouvre"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.soldeARecouvrer" for="field_soldeARecouvrer">Solde A Recouvrer</label>
+                    <input type="number" class="form-control" name="soldeARecouvrer" id="field_soldeARecouvrer"
+                           formControlName="soldeARecouvrer"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.origine" for="field_origine">Origine</label>
+                    <select class="form-control" id="field_origine" name="origine" formControlName="origineId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="origineSaisineOption.id" *ngFor="let origineSaisineOption of originesaisines; trackBy: trackById">{{ origineSaisineOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.conclusions" for="field_conclusions">Conclusions</label>
+                    <select class="form-control" id="field_conclusions" name="conclusions" formControlName="conclusionsId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="conclusionOption.id" *ngFor="let conclusionOption of conclusions; trackBy: trackById">{{ conclusionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.maison" for="field_maison">Maison</label>
+                    <select class="form-control" id="field_maison" name="maison" formControlName="maisonId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="maisonOption.id" *ngFor="let maisonOption of maisons; trackBy: trackById">{{ maisonOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.demandeur" for="field_demandeur">Demandeur</label>
+                    <select class="form-control" id="field_demandeur" name="demandeur" formControlName="demandeurId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requerantOption.id" *ngFor="let requerantOption of requerants; trackBy: trackById">{{ requerantOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.creance.defendeur" for="field_defendeur">Defendeur</label>
+                    <select class="form-control" id="field_defendeur" name="defendeur" formControlName="defendeurId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requerantOption.id" *ngFor="let requerantOption of requerants; trackBy: trackById">{{ requerantOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

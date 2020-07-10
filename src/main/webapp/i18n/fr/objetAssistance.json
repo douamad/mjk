@@ -1,0 +1,25 @@
+{
+  "mjkApp": {
+    "objetAssistance": {
+      "home": {
+        "title": "ObjetAssistances",
+        "createLabel": "Créer un nouveau Objet Assistance",
+        "createOrEditLabel": "Créer ou éditer un Objet Assistance",
+        "notFound": "Aucun Objet Assistance trouvé"
+      },
+      "created": "Un nouveau Objet Assistance a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Objet Assistance avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Objet Assistance avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Objet Assistance {{ id }} ?"
+      },
+      "detail": {
+        "title": "Objet Assistance"
+      },
+      "nom": "Nom",
+      "slug": "Slug",
+      "description": "Description",
+      "objet": "Objet"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="requerant">
+            <h2><span jhiTranslate="mjkApp.requerant.detail.title">Requerant</span> {{ requerant.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mjkApp.requerant.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ requerant.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.requerant.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ requerant.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.requerant.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ requerant.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.requerant.mail">Mail</span></dt>
+                <dd>
+                    <span>{{ requerant.mail }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.requerant.localite">Localite</span></dt>
+                <dd>
+                    <span>{{ requerant.localite }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.requerant.genre">Genre</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'mjkApp.Genre.' + requerant.genre }}">{{ requerant.genre }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.requerant.age">Age</span></dt>
+                <dd>
+                    <span>{{ requerant.age }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.requerant.profession">Profession</span></dt>
+                <dd>
+                    <div *ngIf="requerant.professionId">
+                        <a [routerLink]="['/profession', requerant.professionId, 'view']">{{ requerant.professionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.requerant.ethnie">Ethnie</span></dt>
+                <dd>
+                    <div *ngIf="requerant.ethnieId">
+                        <a [routerLink]="['/ethnie', requerant.ethnieId, 'view']">{{ requerant.ethnieId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/requerant', requerant.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

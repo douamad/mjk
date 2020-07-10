@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="saisine">
+            <h2><span jhiTranslate="mjkApp.saisine.detail.title">Saisine</span> {{ saisine.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mjkApp.saisine.ref">Ref</span></dt>
+                <dd>
+                    <span>{{ saisine.ref }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.saisine.date">Date</span></dt>
+                <dd>
+                    <span>{{ saisine.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.saisine.description">Description</span></dt>
+                <dd>
+                    <span>{{ saisine.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.saisine.organisaiton">Organisaiton</span></dt>
+                <dd>
+                    <span>{{ saisine.organisaiton }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.saisine.objet">Objet</span></dt>
+                <dd>
+                    <div *ngIf="saisine.objetId">
+                        <a [routerLink]="['/objet-saisine', saisine.objetId, 'view']">{{ saisine.objetId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.saisine.nature">Nature</span></dt>
+                <dd>
+                    <div *ngIf="saisine.natureId">
+                        <a [routerLink]="['/nature-saisine', saisine.natureId, 'view']">{{ saisine.natureId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.saisine.origine">Origine</span></dt>
+                <dd>
+                    <div *ngIf="saisine.origineId">
+                        <a [routerLink]="['/origine-saisine', saisine.origineId, 'view']">{{ saisine.origineId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.saisine.conclusion">Conclusion</span></dt>
+                <dd>
+                    <div *ngIf="saisine.conclusionId">
+                        <a [routerLink]="['/conclusion', saisine.conclusionId, 'view']">{{ saisine.conclusionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.saisine.maison">Maison</span></dt>
+                <dd>
+                    <div *ngIf="saisine.maisonId">
+                        <a [routerLink]="['/maison', saisine.maisonId, 'view']">{{ saisine.maisonId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.saisine.demandeur">Demandeur</span></dt>
+                <dd>
+                    <div *ngIf="saisine.demandeurId">
+                        <a [routerLink]="['/requerant', saisine.demandeurId, 'view']">{{ saisine.demandeurId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.saisine.defendeur">Defendeur</span></dt>
+                <dd>
+                    <div *ngIf="saisine.defendeurId">
+                        <a [routerLink]="['/requerant', saisine.defendeurId, 'view']">{{ saisine.defendeurId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/saisine', saisine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

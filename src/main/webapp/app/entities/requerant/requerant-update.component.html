@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-requerant-heading" jhiTranslate="mjkApp.requerant.home.createOrEditLabel">Create or edit a Requerant</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.requerant.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.requerant.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.requerant.telephone" for="field_telephone">Telephone</label>
+                    <input type="text" class="form-control" name="telephone" id="field_telephone"
+                           formControlName="telephone"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.requerant.mail" for="field_mail">Mail</label>
+                    <input type="text" class="form-control" name="mail" id="field_mail"
+                           formControlName="mail"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.requerant.localite" for="field_localite">Localite</label>
+                    <input type="text" class="form-control" name="localite" id="field_localite"
+                           formControlName="localite"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.requerant.genre" for="field_genre">Genre</label>
+                    <select class="form-control" name="genre" formControlName="genre" id="field_genre">
+                        <option value="H">{{ 'mjkApp.Genre.H' | translate }}</option>
+                        <option value="F">{{ 'mjkApp.Genre.F' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.requerant.age" for="field_age">Age</label>
+                    <input type="number" class="form-control" name="age" id="field_age"
+                           formControlName="age"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.requerant.profession" for="field_profession">Profession</label>
+                    <select class="form-control" id="field_profession" name="profession" formControlName="professionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="professionOption.id" *ngFor="let professionOption of professions; trackBy: trackById">{{ professionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.requerant.ethnie" for="field_ethnie">Ethnie</label>
+                    <select class="form-control" id="field_ethnie" name="ethnie" formControlName="ethnieId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ethnieOption.id" *ngFor="let ethnieOption of ethnies; trackBy: trackById">{{ ethnieOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

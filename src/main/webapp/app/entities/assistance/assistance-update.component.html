@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-assistance-heading" jhiTranslate="mjkApp.assistance.home.createOrEditLabel">Create or edit a Assistance</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.assistance.reference" for="field_reference">Reference</label>
+                    <input type="text" class="form-control" name="reference" id="field_reference"
+                           formControlName="reference"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.assistance.date" for="field_date">Date</label>
+                    <input type="text" class="form-control" name="date" id="field_date"
+                           formControlName="date"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.assistance.cout" for="field_cout">Cout</label>
+                    <input type="text" class="form-control" name="cout" id="field_cout"
+                           formControlName="cout"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.assistance.objetAssistance" for="field_objetAssistance">Objet Assistance</label>
+                    <select class="form-control" id="field_objetAssistance" name="objetAssistance" formControlName="objetAssistanceId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="objetAssistanceOption.id" *ngFor="let objetAssistanceOption of objetassistances; trackBy: trackById">{{ objetAssistanceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.assistance.maison" for="field_maison">Maison</label>
+                    <select class="form-control" id="field_maison" name="maison" formControlName="maisonId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="maisonOption.id" *ngFor="let maisonOption of maisons; trackBy: trackById">{{ maisonOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.assistance.demandeur" for="field_demandeur">Demandeur</label>
+                    <select class="form-control" id="field_demandeur" name="demandeur" formControlName="demandeurId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requerantOption.id" *ngFor="let requerantOption of requerants; trackBy: trackById">{{ requerantOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.assistance.defendeur" for="field_defendeur">Defendeur</label>
+                    <select class="form-control" id="field_defendeur" name="defendeur" formControlName="defendeurId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requerantOption.id" *ngFor="let requerantOption of requerants; trackBy: trackById">{{ requerantOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="maison">
+            <h2><span jhiTranslate="mjkApp.maison.detail.title">Maison</span> {{ maison.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mjkApp.maison.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ maison.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.maison.slug">Slug</span></dt>
+                <dd>
+                    <span>{{ maison.slug }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.maison.description">Description</span></dt>
+                <dd>
+                    <span>{{ maison.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/maison', maison.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

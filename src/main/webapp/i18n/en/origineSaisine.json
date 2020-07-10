@@ -1,0 +1,26 @@
+{
+  "mjkApp": {
+    "origineSaisine": {
+      "home": {
+        "title": "Origine Saisines",
+        "createLabel": "Create a new Origine Saisine",
+        "createOrEditLabel": "Create or edit a Origine Saisine",
+        "notFound": "No Origine Saisines found"
+      },
+      "created": "A new Origine Saisine is created with identifier {{ param }}",
+      "updated": "A Origine Saisine is updated with identifier {{ param }}",
+      "deleted": "A Origine Saisine is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Origine Saisine {{ id }}?"
+      },
+      "detail": {
+        "title": "Origine Saisine"
+      },
+      "nom": "Nom",
+      "slug": "Slug",
+      "description": "Description",
+      "creances": "Creances",
+      "saisines": "Saisines"
+    }
+  }
+}

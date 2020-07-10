@@ -14,7 +14,31 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134437_added_entity_ObjetSaisine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134537_added_entity_OrigineSaisine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134637_added_entity_NatureSaisine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134737_added_entity_Conclusion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134837_added_entity_Maison.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134937_added_entity_Profession.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135037_added_entity_ObjetAssistance.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135137_added_entity_Ethnie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135237_added_entity_Saisine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135337_added_entity_Requerant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135437_added_entity_Creance.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135537_added_entity_Assistance.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200709134437_added_entity_constraints_ObjetSaisine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134537_added_entity_constraints_OrigineSaisine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134637_added_entity_constraints_NatureSaisine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134737_added_entity_constraints_Conclusion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134837_added_entity_constraints_Maison.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709134937_added_entity_constraints_Profession.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135037_added_entity_constraints_ObjetAssistance.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135137_added_entity_constraints_Ethnie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135337_added_entity_constraints_Requerant.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135237_added_entity_constraints_Saisine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135437_added_entity_constraints_Creance.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200709135537_added_entity_constraints_Assistance.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

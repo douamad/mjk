@@ -1,0 +1,48 @@
+{
+  "name": "Maison",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "slug",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "assistance",
+      "otherEntityRelationshipName": "maison",
+      "relationshipName": "assistances"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "creance",
+      "otherEntityRelationshipName": "maison",
+      "relationshipName": "creances"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "saisine",
+      "otherEntityRelationshipName": "maison",
+      "relationshipName": "saisines"
+    }
+  ],
+  "changelogDate": "20200709134837",
+  "entityTableName": "maison",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="assistance">
+            <h2><span jhiTranslate="mjkApp.assistance.detail.title">Assistance</span> {{ assistance.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mjkApp.assistance.reference">Reference</span></dt>
+                <dd>
+                    <span>{{ assistance.reference }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.assistance.date">Date</span></dt>
+                <dd>
+                    <span>{{ assistance.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.assistance.cout">Cout</span></dt>
+                <dd>
+                    <span>{{ assistance.cout }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.assistance.objetAssistance">Objet Assistance</span></dt>
+                <dd>
+                    <div *ngIf="assistance.objetAssistanceId">
+                        <a [routerLink]="['/objet-assistance', assistance.objetAssistanceId, 'view']">{{ assistance.objetAssistanceId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.assistance.maison">Maison</span></dt>
+                <dd>
+                    <div *ngIf="assistance.maisonId">
+                        <a [routerLink]="['/maison', assistance.maisonId, 'view']">{{ assistance.maisonId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.assistance.demandeur">Demandeur</span></dt>
+                <dd>
+                    <div *ngIf="assistance.demandeurId">
+                        <a [routerLink]="['/requerant', assistance.demandeurId, 'view']">{{ assistance.demandeurId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.assistance.defendeur">Defendeur</span></dt>
+                <dd>
+                    <div *ngIf="assistance.defendeurId">
+                        <a [routerLink]="['/requerant', assistance.defendeurId, 'view']">{{ assistance.defendeurId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/assistance', assistance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

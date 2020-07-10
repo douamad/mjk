@@ -1,0 +1,58 @@
+{
+  "name": "Assistance",
+  "fields": [
+    {
+      "fieldName": "reference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cout",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "objetAssistance",
+      "otherEntityRelationshipName": "objet",
+      "relationshipName": "objetAssistance",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "maison",
+      "otherEntityRelationshipName": "assistances",
+      "relationshipName": "maison",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "requerant",
+      "otherEntityRelationshipName": "demandeAssistance",
+      "relationshipName": "demandeur",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "requerant",
+      "otherEntityRelationshipName": "defenseAssistance",
+      "relationshipName": "defendeur",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200709135537",
+  "entityTableName": "assistance",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

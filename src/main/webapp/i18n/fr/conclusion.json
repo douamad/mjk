@@ -1,0 +1,26 @@
+{
+  "mjkApp": {
+    "conclusion": {
+      "home": {
+        "title": "Conclusions",
+        "createLabel": "Créer un nouveau Conclusion",
+        "createOrEditLabel": "Créer ou éditer un Conclusion",
+        "notFound": "Aucun Conclusion trouvé"
+      },
+      "created": "Un nouveau Conclusion a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Conclusion avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Conclusion avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Conclusion {{ id }} ?"
+      },
+      "detail": {
+        "title": "Conclusion"
+      },
+      "nom": "Nom",
+      "slug": "Slug",
+      "description": "Description",
+      "creances": "Creances",
+      "saisines": "Saisines"
+    }
+  }
+}

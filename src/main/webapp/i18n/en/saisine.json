@@ -1,0 +1,32 @@
+{
+  "mjkApp": {
+    "saisine": {
+      "home": {
+        "title": "Saisines",
+        "createLabel": "Create a new Saisine",
+        "createOrEditLabel": "Create or edit a Saisine",
+        "notFound": "No Saisines found"
+      },
+      "created": "A new Saisine is created with identifier {{ param }}",
+      "updated": "A Saisine is updated with identifier {{ param }}",
+      "deleted": "A Saisine is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Saisine {{ id }}?"
+      },
+      "detail": {
+        "title": "Saisine"
+      },
+      "ref": "Ref",
+      "date": "Date",
+      "description": "Description",
+      "organisaiton": "Organisaiton",
+      "objet": "Objet",
+      "nature": "Nature",
+      "origine": "Origine",
+      "conclusion": "Conclusion",
+      "maison": "Maison",
+      "demandeur": "Demandeur",
+      "defendeur": "Defendeur"
+    }
+  }
+}

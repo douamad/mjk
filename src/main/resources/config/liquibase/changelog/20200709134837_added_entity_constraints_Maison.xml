@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Maison.
+    -->
+    <changeSet id="20200709134837-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="assistance_id"
+                                 baseTableName="maison"
+                                 constraintName="fk_maison_assistance_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="assistance"/>
+
+        <addForeignKeyConstraint baseColumnNames="creance_id"
+                                 baseTableName="maison"
+                                 constraintName="fk_maison_creance_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="creance"/>
+
+        <addForeignKeyConstraint baseColumnNames="saisine_id"
+                                 baseTableName="maison"
+                                 constraintName="fk_maison_saisine_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="saisine"/>
+
+    </changeSet>
+</databaseChangeLog>

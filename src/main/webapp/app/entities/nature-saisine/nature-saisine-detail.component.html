@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="natureSaisine">
+            <h2><span jhiTranslate="mjkApp.natureSaisine.detail.title">Nature Saisine</span> {{ natureSaisine.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mjkApp.natureSaisine.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ natureSaisine.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.natureSaisine.slug">Slug</span></dt>
+                <dd>
+                    <span>{{ natureSaisine.slug }}</span>
+                </dd>
+                <dt><span jhiTranslate="mjkApp.natureSaisine.description">Description</span></dt>
+                <dd>
+                    <span>{{ natureSaisine.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nature-saisine', natureSaisine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

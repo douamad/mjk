@@ -1,0 +1,83 @@
+{
+  "name": "Saisine",
+  "fields": [
+    {
+      "fieldName": "ref",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "organisaiton",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "objetSaisine",
+      "otherEntityRelationshipName": "saisines",
+      "relationshipName": "objet",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "natureSaisine",
+      "otherEntityRelationshipName": "saisines",
+      "relationshipName": "nature",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "origineSaisine",
+      "otherEntityRelationshipName": "saisines",
+      "relationshipName": "origine",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "conclusion",
+      "otherEntityRelationshipName": "saisines",
+      "relationshipName": "conclusion",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "maison",
+      "otherEntityRelationshipName": "saisines",
+      "relationshipName": "maison",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "requerant",
+      "otherEntityRelationshipName": "demandeSaisines",
+      "relationshipName": "demandeur",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "requerant",
+      "otherEntityRelationshipName": "defenseSaisines",
+      "relationshipName": "defendeur",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200709135237",
+  "entityTableName": "saisine",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

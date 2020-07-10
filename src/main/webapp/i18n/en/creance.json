@@ -1,0 +1,34 @@
+{
+  "mjkApp": {
+    "creance": {
+      "home": {
+        "title": "Creances",
+        "createLabel": "Create a new Creance",
+        "createOrEditLabel": "Create or edit a Creance",
+        "notFound": "No Creances found"
+      },
+      "created": "A new Creance is created with identifier {{ param }}",
+      "updated": "A Creance is updated with identifier {{ param }}",
+      "deleted": "A Creance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Creance {{ id }}?"
+      },
+      "detail": {
+        "title": "Creance"
+      },
+      "ref": "Ref",
+      "date": "Date",
+      "datePVRec": "Date PV Rec",
+      "natureLitige": "Nature Litige",
+      "montant": "Montant",
+      "nombreEcheance": "Nombre Echeance",
+      "totalRecouvre": "Total Recouvre",
+      "soldeARecouvrer": "Solde A Recouvrer",
+      "origine": "Origine",
+      "conclusions": "Conclusions",
+      "maison": "Maison",
+      "demandeur": "Demandeur",
+      "defendeur": "Defendeur"
+    }
+  }
+}

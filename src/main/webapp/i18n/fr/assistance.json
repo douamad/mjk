@@ -1,0 +1,28 @@
+{
+  "mjkApp": {
+    "assistance": {
+      "home": {
+        "title": "Assistances",
+        "createLabel": "Créer un nouveau Assistance",
+        "createOrEditLabel": "Créer ou éditer un Assistance",
+        "notFound": "Aucun Assistance trouvé"
+      },
+      "created": "Un nouveau Assistance a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Assistance avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Assistance avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Assistance {{ id }} ?"
+      },
+      "detail": {
+        "title": "Assistance"
+      },
+      "reference": "Reference",
+      "date": "Date",
+      "cout": "Cout",
+      "objetAssistance": "Objet Assistance",
+      "maison": "Maison",
+      "demandeur": "Demandeur",
+      "defendeur": "Defendeur"
+    }
+  }
+}

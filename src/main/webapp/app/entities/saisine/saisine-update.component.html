@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-saisine-heading" jhiTranslate="mjkApp.saisine.home.createOrEditLabel">Create or edit a Saisine</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.ref" for="field_ref">Ref</label>
+                    <input type="text" class="form-control" name="ref" id="field_ref"
+                           formControlName="ref"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.date" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" formControlName="date"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.organisaiton" for="field_organisaiton">Organisaiton</label>
+                    <input type="number" class="form-control" name="organisaiton" id="field_organisaiton"
+                           formControlName="organisaiton"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.objet" for="field_objet">Objet</label>
+                    <select class="form-control" id="field_objet" name="objet" formControlName="objetId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="objetSaisineOption.id" *ngFor="let objetSaisineOption of objetsaisines; trackBy: trackById">{{ objetSaisineOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.nature" for="field_nature">Nature</label>
+                    <select class="form-control" id="field_nature" name="nature" formControlName="natureId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="natureSaisineOption.id" *ngFor="let natureSaisineOption of naturesaisines; trackBy: trackById">{{ natureSaisineOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.origine" for="field_origine">Origine</label>
+                    <select class="form-control" id="field_origine" name="origine" formControlName="origineId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="origineSaisineOption.id" *ngFor="let origineSaisineOption of originesaisines; trackBy: trackById">{{ origineSaisineOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.conclusion" for="field_conclusion">Conclusion</label>
+                    <select class="form-control" id="field_conclusion" name="conclusion" formControlName="conclusionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="conclusionOption.id" *ngFor="let conclusionOption of conclusions; trackBy: trackById">{{ conclusionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.maison" for="field_maison">Maison</label>
+                    <select class="form-control" id="field_maison" name="maison" formControlName="maisonId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="maisonOption.id" *ngFor="let maisonOption of maisons; trackBy: trackById">{{ maisonOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.demandeur" for="field_demandeur">Demandeur</label>
+                    <select class="form-control" id="field_demandeur" name="demandeur" formControlName="demandeurId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requerantOption.id" *ngFor="let requerantOption of requerants; trackBy: trackById">{{ requerantOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mjkApp.saisine.defendeur" for="field_defendeur">Defendeur</label>
+                    <select class="form-control" id="field_defendeur" name="defendeur" formControlName="defendeurId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requerantOption.id" *ngFor="let requerantOption of requerants; trackBy: trackById">{{ requerantOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

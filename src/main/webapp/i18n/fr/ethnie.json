@@ -1,0 +1,25 @@
+{
+  "mjkApp": {
+    "ethnie": {
+      "home": {
+        "title": "Ethnies",
+        "createLabel": "Créer un nouveau Ethnie",
+        "createOrEditLabel": "Créer ou éditer un Ethnie",
+        "notFound": "Aucun Ethnie trouvé"
+      },
+      "created": "Un nouveau Ethnie a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ethnie avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ethnie avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ethnie {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ethnie"
+      },
+      "nom": "Nom",
+      "slug": "Slug",
+      "description": "Description",
+      "ethni": "Ethni"
+    }
+  }
+}

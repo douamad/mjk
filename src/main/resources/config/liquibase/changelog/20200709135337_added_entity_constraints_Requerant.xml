@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Requerant.
+    -->
+    <changeSet id="20200709135337-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="profession_id"
+                                 baseTableName="requerant"
+                                 constraintName="fk_requerant_profession_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="profession"/>
+
+        <addForeignKeyConstraint baseColumnNames="ethnie_id"
+                                 baseTableName="requerant"
+                                 constraintName="fk_requerant_ethnie_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ethnie"/>
+
+    </changeSet>
+</databaseChangeLog>
