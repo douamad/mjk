@@ -36,7 +36,10 @@
     "dtoSuffix": "DTO",
     "otherModules": [],
     "blueprints": [],
-    "prettierJava": true
+    "prettierJava": true,
+    "herokuAppName": "mjk",
+    "herokuDeployType": "git",
+    "herokuJavaVersion": "1.8"
   },
   "git-provider": "GitHub",
   "git-company": "douamad",
