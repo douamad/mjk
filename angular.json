@@ -29,7 +29,7 @@
       "architect": {}
     }
   },
-  "defaultProject": "mjk",
+  "defaultProject": "justice-de-proximite",
   "cli": {
     "packageManager": "npm"
   }
